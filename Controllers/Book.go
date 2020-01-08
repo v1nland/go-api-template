@@ -1,8 +1,8 @@
 package Controllers
 
 import (
-	"ms-apiservice/ApiHelpers"
-	"ms-apiservice/Models"
+	"github.com/v1nland/ms-apiservice/ApiHelpers"
+	"github.com/v1nland/ms-apiservice/Models"
 	"github.com/gin-gonic/gin"
 )
 

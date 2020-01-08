@@ -1,7 +1,7 @@
 package Models
 
 import (
-	"ms-apiservice/Config"
+	"github.com/v1nland/ms-apiservice/Config"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 )

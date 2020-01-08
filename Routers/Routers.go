@@ -1,7 +1,7 @@
 package Routers
 
 import (
-	"ms-apiservice/Controllers"
+	"github.com/v1nland/ms-apiservice/Controllers"
 	"github.com/gin-gonic/gin"
 )
 
