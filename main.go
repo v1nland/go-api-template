@@ -1,9 +1,9 @@
 package main
 
 import (
-	"ms-apiservice/Config"
-	"ms-apiservice/Models"
-	"ms-apiservice/Routers"
+	"github.com/v1nland/ms-apiservice/Config"
+	"github.com/v1nland/ms-apiservice/Models"
+	"github.com/v1nland/ms-apiservice/Routers"
 	"fmt"
 	"github.com/jinzhu/gorm"
 )

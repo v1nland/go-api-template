@@ -123,13 +123,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:436b7f202cc7529f42ae1ceb20ce9a0b429422088c54ccf24114746682657335"
+  digest = "1:0c69a68fee361d7bf5ee8a06429f397ec0d6c95615890cbdc4bc97aaecad2f52"
   name = "github.com/v1nland/ms-apiservice"
   packages = [
     "ApiHelpers",
     "Config",
     "Controllers",
     "Models",
+    "Routers",
   ]
   pruneopts = "UT"
   revision = "a8b16268719bf87197fffdda78c082b7df0205d0"
@@ -169,6 +170,7 @@
     "github.com/v1nland/ms-apiservice/Config",
     "github.com/v1nland/ms-apiservice/Controllers",
     "github.com/v1nland/ms-apiservice/Models",
+    "github.com/v1nland/ms-apiservice/Routers",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
