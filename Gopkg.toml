@@ -37,6 +37,11 @@
   name = "github.com/jinzhu/gorm"
   version = "1.9.12"
 
+[metadata.heroku]
+  root-package = "github.com/v1nland/ms-apiservice"
+  go-version = "1.13"
+  install = [ "./..." ]
+
 [prune]
   go-tests = true
   unused-packages = true

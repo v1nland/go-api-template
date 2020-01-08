@@ -123,6 +123,19 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:436b7f202cc7529f42ae1ceb20ce9a0b429422088c54ccf24114746682657335"
+  name = "github.com/v1nland/ms-apiservice"
+  packages = [
+    "ApiHelpers",
+    "Config",
+    "Controllers",
+    "Models",
+  ]
+  pruneopts = "UT"
+  revision = "a8b16268719bf87197fffdda78c082b7df0205d0"
+
+[[projects]]
+  branch = "master"
   digest = "1:e13350b7207ecc34977340d53522e0335dd36ed86ca7c346a36d2e88eb0fadfc"
   name = "golang.org/x/sys"
   packages = ["unix"]
@@ -152,6 +165,10 @@
     "github.com/gin-gonic/gin",
     "github.com/go-sql-driver/mysql",
     "github.com/jinzhu/gorm",
+    "github.com/v1nland/ms-apiservice/ApiHelpers",
+    "github.com/v1nland/ms-apiservice/Config",
+    "github.com/v1nland/ms-apiservice/Controllers",
+    "github.com/v1nland/ms-apiservice/Models",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
