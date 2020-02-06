@@ -1,1 +1,1 @@
-web: ms-apiservice
+web: go-api-template

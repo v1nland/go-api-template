@@ -38,7 +38,7 @@
   version = "1.9.12"
 
 [metadata.heroku]
-  root-package = "github.com/v1nland/ms-apiservice"
+  root-package = "github.com/v1nland/go-api-template"
   go-version = "1.13"
   install = [ "./..." ]
 

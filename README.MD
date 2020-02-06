@@ -1,12 +1,15 @@
-# Api go simple
-It is a just simple RESTful API with Go using:
+# Go API template
+
+Just simple RESTful API compatible with heroku using:
+
 1. **Gin Framework**
 2. **Gorm**
+3. **Go 1.13**
 
 ## Installation & Run
 ```bash
 # Download this project
-$ go get github.com/dedidot/gorm-gin
+$ go get github.com/v1nland/go-api-template
 
 # Download Gin Framework
 $ go get github.com/gin-gonic/gin
@@ -23,29 +26,20 @@ Config.DB, err = gorm.Open("mysql", "DBUSERNAME:DBPASSWORD@tcp(127.0.0.1:3306)/D
 ## Structure
 ```
 ├── Models
-│   ├── Book.go // Book models
-|	├── Scheme.go // Book struct and tabel
+│   ├── Usuario.go // Usuario models
+|	├── Scheme.go // Usuario struct and tabel
 ├── Config
 │   └── Database.go // Global DB
 ├── Controllers
-│   └── Book.go // Book Controller
+│   └── Usuario.go // Usuario Controller
 ├── ApiHelpers
-│   └── Response.go // response function
+│   └── Response.go // Response function
 ├── Routers
 |   └── Routers.go // Routers
 └── main.go
 ```
 
 ## API
-
-#### /book
-* `GET` : Get all book
-* `POST` : Create a new book
-
-#### /book/:id
-* `GET` : Get a book
-* `PUT` : Update a book
-* `DELETE` : Delete a book
 
 #### /usuario
 * `GET` : Get all usuario
@@ -56,16 +50,7 @@ Config.DB, err = gorm.Open("mysql", "DBUSERNAME:DBPASSWORD@tcp(127.0.0.1:3306)/D
 * `PUT` : Update a usuario
 * `DELETE` : Delete a usuario
 
-#Book POST Params (JSON)
-```
-{
-	"author": "Op Super John Doe Bilw",
-	"name": "Implementation Golang",
-	"category": "Knowledge"
-}
-```
-
-#Usuario POST Params (JSON)
+# Usuario POST Params (JSON)
 ```
 {
 	"usuario": "test_username",

@@ -1,8 +1,8 @@
 package Controllers
 
 import (
-	"github.com/v1nland/ms-apiservice/ApiHelpers"
-	"github.com/v1nland/ms-apiservice/Models"
+	"go-api-template/ApiHelpers"
+	"go-api-template/Models"
 	"github.com/gin-gonic/gin"
 )
 
