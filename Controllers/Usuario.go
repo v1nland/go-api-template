@@ -1,14 +1,15 @@
 package Controllers
 
 import (
+	"github.com/gin-gonic/gin"
 	"go-api-template/ApiHelpers"
 	"go-api-template/Models"
-	"github.com/gin-gonic/gin"
+	"go-api-template/Repositories"
 )
 
 func ListUsuario(c *gin.Context) {
 	var usr []Models.Usuario
-	err := Models.GetAllUsuario(&usr)
+	err := Repositories.GetAllUsuario(&usr)
 	if err != nil {
 		ApiHelpers.RespondJSON(c, 404, usr)
 	} else {
@@ -19,7 +20,7 @@ func ListUsuario(c *gin.Context) {
 func AddNewUsuario(c *gin.Context) {
 	var usr Models.Usuario
 	c.BindJSON(&usr)
-	err := Models.AddNewUsuario(&usr)
+	err := Repositories.AddNewUsuario(&usr)
 	if err != nil {
 		ApiHelpers.RespondJSON(c, 404, usr)
 	} else {
@@ -30,7 +31,7 @@ func AddNewUsuario(c *gin.Context) {
 func GetOneUsuario(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var usr Models.Usuario
-	err := Models.GetOneUsuario(&usr, id)
+	err := Repositories.GetOneUsuario(&usr, id)
 	if err != nil {
 		ApiHelpers.RespondJSON(c, 404, usr)
 	} else {
@@ -41,12 +42,12 @@ func GetOneUsuario(c *gin.Context) {
 func PutOneUsuario(c *gin.Context) {
 	var usr Models.Usuario
 	id := c.Params.ByName("id")
-	err := Models.GetOneUsuario(&usr, id)
+	err := Repositories.GetOneUsuario(&usr, id)
 	if err != nil {
 		ApiHelpers.RespondJSON(c, 404, usr)
 	}
 	c.BindJSON(&usr)
-	err = Models.PutOneUsuario(&usr, id)
+	err = Repositories.PutOneUsuario(&usr, id)
 	if err != nil {
 		ApiHelpers.RespondJSON(c, 404, usr)
 	} else {
@@ -57,7 +58,7 @@ func PutOneUsuario(c *gin.Context) {
 func DeleteUsuario(c *gin.Context) {
 	var usr Models.Usuario
 	id := c.Params.ByName("id")
-	err := Models.DeleteUsuario(&usr, id)
+	err := Repositories.DeleteUsuario(&usr, id)
 	if err != nil {
 		ApiHelpers.RespondJSON(c, 404, usr)
 	} else {
