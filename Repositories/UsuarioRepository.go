@@ -3,6 +3,7 @@ package Repositories
 import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"go-api-template/Config"
 	"go-api-template/Models"
 )

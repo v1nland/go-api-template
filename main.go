@@ -18,16 +18,13 @@ func main() {
 		fmt.Println("status error: ", err)
 	}
 
-	host := os.Getenv("DB_HOST")
-	port := os.Getenv("DB_PORT")
-	user := os.Getenv("DB_USER")
-	dbname := os.Getenv("DB_NAME")
-	password := os.Getenv("DB_PASS")
+	db_service := os.Getenv("DB_SERVICE")
+	connection_string := os.Getenv("DB_CONNECTION_STRING")
 	shouldAutomigrate := os.Getenv("SHOULD_AUTOMIGRATE")
 
-	Config.DB, err = gorm.Open("postgres", "host="+host+" port="+port+" user="+user+" dbname="+dbname+" password="+password)
+	Config.DB, err = gorm.Open(db_service, connection_string)
 	if err != nil {
-		fmt.Println("statuse: ", err)
+		fmt.Println("status: ", err)
 	}
 	defer Config.DB.Close()
 

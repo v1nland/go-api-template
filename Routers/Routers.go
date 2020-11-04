@@ -1,21 +1,24 @@
 package Routers
 
 import (
-	"go-api-template/Controllers"
 	"github.com/gin-gonic/gin"
+	"go-api-template/Controllers"
 )
 
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
 	// segment API by version
-	v1 := r.Group("/v1")
+	r.Group("/v1")
 	{
-		v1.GET("usuario", Controllers.ListUsuario)
-		v1.POST("usuario", Controllers.AddNewUsuario)
-		v1.GET("usuario/:id", Controllers.GetOneUsuario)
-		v1.PUT("usuario/:id", Controllers.PutOneUsuario)
-		v1.DELETE("usuario/:id", Controllers.DeleteUsuario)
+		usuario := r.Group("/usuario")
+		{
+			usuario.GET("", Controllers.ListUsuario)
+			usuario.POST("", Controllers.AddNewUsuario)
+			usuario.GET(":id", Controllers.GetOneUsuario)
+			usuario.PUT(":id", Controllers.PutOneUsuario)
+			usuario.DELETE(":id", Controllers.DeleteUsuario)
+		}
 	}
 
 	return r
