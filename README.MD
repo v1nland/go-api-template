@@ -1,64 +1,51 @@
-# Go API template
+# go-api-template
 
 A simple RESTful API compatible with heroku using:
 
 1. **Gin Framework**
 2. **Gorm**
-3. **Go 1.13**
+3. **Go 1.15**
 
 ## Installation & Run
 
+Download this project
+
 ```bash
-# Download this project
-$ go get github.com/v1nland/go-api-template
-
-# Download Gin Framework
-$ go get github.com/gin-gonic/gin
-
-# Download GORM
-$ go get github.com/jinzhu/gorm
+$ git clone github.com/v1nland/go-api-template
 ```
 
-Setting DB in main.go
+To run locally, generate .env file and modify its variables
 
-```go
-Config.DB, err = gorm.Open("mysql", "DBUSERNAME:DBPASSWORD@tcp(127.0.0.1:3306)/DBNAME?charset=utf8&parseTime=True&loc=Local")
+```bash
+cp .env.example .env
 ```
 
-## Structure
+Run and install dependencies
 
-```
-├── ApiHelpers: Response interfaces
-├── Config: Database or another services configuration
-├── Controllers: GIN controller
-├── Formats: Format functions (input/output)
-├── Models: Database models
-├── Repositories: Database repositories
-├── RequestMessages: Input structures
-├── ResponseMessages: Output structures
-├── Routers: Routing handler
-└── main.go
+```bash
+$ go run *.go
 ```
 
 ## API
 
-#### /usuario
+#### /estudiantes
 
--   `GET` : Get all usuario
--   `POST` : Create a new usuario
+-   `GET` : Get all estudiantes
+-   `POST` : Create a new estudiante
 
-#### /usuario/:id
+#### /estudiantes/:uuid
 
--   `GET` : Get a usuario
--   `PUT` : Update a usuario
--   `DELETE` : Delete a usuario
+-   `GET` : Get a estudiante
+-   `PUT` : Update a estudiante
+-   `DELETE` : Delete a estudiante
 
-# Usuario POST Params (JSON)
+#### /roles
 
-```
-{
-	"usuario": "test_username",
-	"nombre": "test_name",
-	"apellido": "test_lastname"
-}
-```
+-   `GET` : Get all rols
+-   `POST` : Create a new rol
+
+#### /roles/:uuid
+
+-   `GET` : Get a rol
+-   `PUT` : Update a rol
+-   `DELETE` : Delete a rol

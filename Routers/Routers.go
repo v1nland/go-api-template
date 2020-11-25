@@ -1,6 +1,7 @@
 package Routers
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go-api-template/Controllers"
 )
@@ -8,16 +9,33 @@ import (
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	config.AddAllowHeaders("authorization")
+
+	r.Use(cors.New(config))
+
 	// segment API by version
-	r.Group("/v1")
+	v1 := r.Group("api/v1")
 	{
-		usuario := r.Group("/usuario")
+		// segment by business domain
+		estudiantes := v1.Group("/estudiantes")
 		{
-			usuario.GET("", Controllers.ListUsuario)
-			usuario.POST("", Controllers.AddNewUsuario)
-			usuario.GET(":id", Controllers.GetOneUsuario)
-			usuario.PUT(":id", Controllers.PutOneUsuario)
-			usuario.DELETE(":id", Controllers.DeleteUsuario)
+			estudiantes.GET("", Controllers.ListEstudiantes)
+			estudiantes.GET(":id", Controllers.GetOneEstudiante)
+			estudiantes.POST("", Controllers.AddNewEstudiante)
+			estudiantes.PUT(":id", Controllers.PutOneEstudiante)
+			estudiantes.DELETE(":id", Controllers.DeleteEstudiante)
+		}
+
+		// segment by business domain
+		roles := v1.Group("/roles")
+		{
+			roles.GET("", Controllers.ListRols)
+			roles.GET(":id", Controllers.GetOneRol)
+			roles.POST("", Controllers.AddNewRol)
+			roles.PUT(":id", Controllers.PutOneRol)
+			roles.DELETE(":id", Controllers.DeleteRol)
 		}
 	}
 
