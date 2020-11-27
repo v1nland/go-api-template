@@ -42,6 +42,9 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "Estudiantes"
+                ],
                 "summary": "Lista de estudiantes",
                 "responses": {
                     "200": {
@@ -49,7 +52,7 @@ var doc = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/ResponseMessages.ListEstudiantesResponse"
+                                "$ref": "#/definitions/SwaggerMessages.ListEstudiantesSwagger"
                             }
                         }
                     },
@@ -69,6 +72,9 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "Estudiantes"
+                ],
                 "summary": "Agrega un nuevo estudiante",
                 "parameters": [
                     {
@@ -85,7 +91,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ResponseMessages.AddNewEstudianteResponse"
+                            "$ref": "#/definitions/SwaggerMessages.AddNewEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -106,6 +112,9 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "Estudiantes"
+                ],
                 "summary": "Obtiene un estudiante",
                 "parameters": [
                     {
@@ -120,7 +129,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ResponseMessages.GetOneEstudianteResponse"
+                            "$ref": "#/definitions/SwaggerMessages.GetOneEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -138,6 +147,9 @@ var doc = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "Estudiantes"
                 ],
                 "summary": "Modifica un estudiante",
                 "parameters": [
@@ -162,7 +174,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ResponseMessages.PutOneEstudianteResponse"
+                            "$ref": "#/definitions/SwaggerMessages.PutOneEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -181,6 +193,9 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "Estudiantes"
+                ],
                 "summary": "Elimina un estudiante",
                 "parameters": [
                     {
@@ -195,7 +210,196 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ResponseMessages.DeleteEstudianteResponse"
+                            "$ref": "#/definitions/SwaggerMessages.DeleteEstudianteSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/ApiHelpers.ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/roles": {
+            "get": {
+                "description": "Lista todos los Roles",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Lista de Roles",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SwaggerMessages.ListRolesSwagger"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/ApiHelpers.ResponseError"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Genera un nuevo rol con los datos entregados",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Agrega un nuevo rol",
+                "parameters": [
+                    {
+                        "description": "Rol a agregar",
+                        "name": "input_rol",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequestMessages.AddNewRolPayload"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SwaggerMessages.AddNewRolSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/ApiHelpers.ResponseError"
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/{uuid_rol}": {
+            "get": {
+                "description": "Obtiene un rol según su UUID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Obtiene un rol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "UUID del rol a buscar",
+                        "name": "uuid_rol",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SwaggerMessages.GetOneRolSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/ApiHelpers.ResponseError"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Modifica un rol con los datos entregados",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Modifica un rol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "UUID del rol a modificar",
+                        "name": "uuid_rol",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Rol a modificar",
+                        "name": "input_actualiza_rol",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequestMessages.PutOneRolPayload"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SwaggerMessages.PutOneRolSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "$ref": "#/definitions/ApiHelpers.ResponseError"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Elimina un rol con los datos entregados",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Elimina un rol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "UUID del rol a eliminar",
+                        "name": "uuid_rol",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SwaggerMessages.DeleteRolSwagger"
                         }
                     },
                     "400": {
@@ -220,6 +424,23 @@ var doc = `{
                 }
             }
         },
+        "Models.Rol": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "nombre_rol": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
         "RequestMessages.AddNewEstudiantePayload": {
             "type": "object",
             "properties": {
@@ -232,8 +453,10 @@ var doc = `{
                 "hash_contrasena_estudiante": {
                     "type": "string"
                 },
+                "id_rol": {
+                    "type": "integer"
+                },
                 "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
                     "type": "string"
                 },
                 "rut_estudiante": {
@@ -243,6 +466,14 @@ var doc = `{
                     "type": "string"
                 },
                 "telefono_fijo_estudiante": {
+                    "type": "string"
+                }
+            }
+        },
+        "RequestMessages.AddNewRolPayload": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
                     "type": "string"
                 }
             }
@@ -259,8 +490,10 @@ var doc = `{
                 "hash_contrasena_estudiante": {
                     "type": "string"
                 },
+                "id_rol": {
+                    "type": "integer"
+                },
                 "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
                     "type": "string"
                 },
                 "rut_estudiante": {
@@ -270,6 +503,14 @@ var doc = `{
                     "type": "string"
                 },
                 "telefono_fijo_estudiante": {
+                    "type": "string"
+                }
+            }
+        },
+        "RequestMessages.PutOneRolPayload": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
                     "type": "string"
                 }
             }
@@ -284,8 +525,10 @@ var doc = `{
                     "type": "string"
                 },
                 "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
                     "type": "string"
+                },
+                "rol_estudiante": {
+                    "$ref": "#/definitions/Models.Rol"
                 },
                 "rut_estudiante": {
                     "type": "string"
@@ -294,6 +537,14 @@ var doc = `{
                     "type": "string"
                 },
                 "telefono_fijo_estudiante": {
+                    "type": "string"
+                }
+            }
+        },
+        "ResponseMessages.AddNewRolResponse": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
                     "type": "string"
                 }
             }
@@ -308,8 +559,10 @@ var doc = `{
                     "type": "string"
                 },
                 "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
                     "type": "string"
+                },
+                "rol_estudiante": {
+                    "$ref": "#/definitions/Models.Rol"
                 },
                 "rut_estudiante": {
                     "type": "string"
@@ -318,6 +571,14 @@ var doc = `{
                     "type": "string"
                 },
                 "telefono_fijo_estudiante": {
+                    "type": "string"
+                }
+            }
+        },
+        "ResponseMessages.DeleteRolResponse": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
                     "type": "string"
                 }
             }
@@ -332,8 +593,10 @@ var doc = `{
                     "type": "string"
                 },
                 "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
                     "type": "string"
+                },
+                "rol_estudiante": {
+                    "$ref": "#/definitions/Models.Rol"
                 },
                 "rut_estudiante": {
                     "type": "string"
@@ -342,6 +605,14 @@ var doc = `{
                     "type": "string"
                 },
                 "telefono_fijo_estudiante": {
+                    "type": "string"
+                }
+            }
+        },
+        "ResponseMessages.GetOneRolResponse": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
                     "type": "string"
                 }
             }
@@ -356,8 +627,10 @@ var doc = `{
                     "type": "string"
                 },
                 "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
                     "type": "string"
+                },
+                "rol_estudiante": {
+                    "$ref": "#/definitions/Models.Rol"
                 },
                 "rut_estudiante": {
                     "type": "string"
@@ -366,6 +639,14 @@ var doc = `{
                     "type": "string"
                 },
                 "telefono_fijo_estudiante": {
+                    "type": "string"
+                }
+            }
+        },
+        "ResponseMessages.ListRolesResponse": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
                     "type": "string"
                 }
             }
@@ -379,9 +660,14 @@ var doc = `{
                 "correo_electronico_estudiante": {
                     "type": "string"
                 },
-                "nombres_estudiante": {
-                    "description": "add fk\nadd fk",
+                "hash_contrasena_estudiante": {
                     "type": "string"
+                },
+                "nombres_estudiante": {
+                    "type": "string"
+                },
+                "rol_estudiante": {
+                    "$ref": "#/definitions/Models.Rol"
                 },
                 "rut_estudiante": {
                     "type": "string"
@@ -391,6 +677,154 @@ var doc = `{
                 },
                 "telefono_fijo_estudiante": {
                     "type": "string"
+                }
+            }
+        },
+        "ResponseMessages.PutOneRolResponse": {
+            "type": "object",
+            "properties": {
+                "nombre_rol": {
+                    "type": "string"
+                }
+            }
+        },
+        "SwaggerMessages.AddNewEstudianteSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.AddNewEstudianteResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.AddNewRolSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.AddNewRolResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.DeleteEstudianteSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.DeleteEstudianteResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.DeleteRolSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.DeleteRolResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.GetOneEstudianteSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.GetOneEstudianteResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.GetOneRolSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.GetOneRolResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.ListEstudiantesSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.ListEstudiantesResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.ListRolesSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.ListRolesResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.PutOneEstudianteSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.PutOneEstudianteResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "SwaggerMessages.PutOneRolSwagger": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ResponseMessages.PutOneRolResponse"
+                },
+                "Meta": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "boolean"
                 }
             }
         }
@@ -409,7 +843,7 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "localhost:8080",
+	Host:        "",
 	BasePath:    "/api/v1",
 	Schemes:     []string{},
 	Title:       "MedRoom API",

@@ -1,6 +1,6 @@
 # go-api-template
 
-A simple RESTful API compatible with heroku using:
+A simple RESTful API compatible with heroku and swaggo using:
 
 1. **Gin Framework**
 2. **Gorm**
@@ -18,6 +18,12 @@ To run locally, generate .env file and modify its variables
 
 ```bash
 cp .env.example .env
+```
+
+Build swagger
+
+```bash
+$ swag init
 ```
 
 Run and install dependencies
@@ -41,10 +47,10 @@ $ go run *.go
 
 #### /roles
 
--   `GET` : Get all rols
+-   `GET` : Get all Roles
 -   `POST` : Create a new rol
 
-#### /roles/:uuid
+#### /roles/:id
 
 -   `GET` : Get a rol
 -   `PUT` : Update a rol

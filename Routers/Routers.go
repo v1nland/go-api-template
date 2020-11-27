@@ -31,7 +31,7 @@ func SetupRouter() *gin.Engine {
 		// segment by business domain
 		roles := v1.Group("/roles")
 		{
-			roles.GET("", Controllers.ListRols)
+			roles.GET("", Controllers.ListRoles)
 			roles.GET(":id", Controllers.GetOneRol)
 			roles.POST("", Controllers.AddNewRol)
 			roles.PUT(":id", Controllers.PutOneRol)

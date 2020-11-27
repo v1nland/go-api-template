@@ -7,6 +7,17 @@ definitions:
       error:
         type: string
     type: object
+  Models.Rol:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      nombre_rol:
+        type: string
+      updated_at:
+        type: string
+    type: object
   RequestMessages.AddNewEstudiantePayload:
     properties:
       apellidos_estudiante:
@@ -15,16 +26,20 @@ definitions:
         type: string
       hash_contrasena_estudiante:
         type: string
+      id_rol:
+        type: integer
       nombres_estudiante:
-        description: |-
-          add fk
-          add fk
         type: string
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
         type: string
       telefono_fijo_estudiante:
+        type: string
+    type: object
+  RequestMessages.AddNewRolPayload:
+    properties:
+      nombre_rol:
         type: string
     type: object
   RequestMessages.PutOneEstudiantePayload:
@@ -35,16 +50,20 @@ definitions:
         type: string
       hash_contrasena_estudiante:
         type: string
+      id_rol:
+        type: integer
       nombres_estudiante:
-        description: |-
-          add fk
-          add fk
         type: string
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
         type: string
       telefono_fijo_estudiante:
+        type: string
+    type: object
+  RequestMessages.PutOneRolPayload:
+    properties:
+      nombre_rol:
         type: string
     type: object
   ResponseMessages.AddNewEstudianteResponse:
@@ -54,15 +73,19 @@ definitions:
       correo_electronico_estudiante:
         type: string
       nombres_estudiante:
-        description: |-
-          add fk
-          add fk
         type: string
+      rol_estudiante:
+        $ref: '#/definitions/Models.Rol'
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
         type: string
       telefono_fijo_estudiante:
+        type: string
+    type: object
+  ResponseMessages.AddNewRolResponse:
+    properties:
+      nombre_rol:
         type: string
     type: object
   ResponseMessages.DeleteEstudianteResponse:
@@ -72,15 +95,19 @@ definitions:
       correo_electronico_estudiante:
         type: string
       nombres_estudiante:
-        description: |-
-          add fk
-          add fk
         type: string
+      rol_estudiante:
+        $ref: '#/definitions/Models.Rol'
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
         type: string
       telefono_fijo_estudiante:
+        type: string
+    type: object
+  ResponseMessages.DeleteRolResponse:
+    properties:
+      nombre_rol:
         type: string
     type: object
   ResponseMessages.GetOneEstudianteResponse:
@@ -90,15 +117,19 @@ definitions:
       correo_electronico_estudiante:
         type: string
       nombres_estudiante:
-        description: |-
-          add fk
-          add fk
         type: string
+      rol_estudiante:
+        $ref: '#/definitions/Models.Rol'
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
         type: string
       telefono_fijo_estudiante:
+        type: string
+    type: object
+  ResponseMessages.GetOneRolResponse:
+    properties:
+      nombre_rol:
         type: string
     type: object
   ResponseMessages.ListEstudiantesResponse:
@@ -108,15 +139,19 @@ definitions:
       correo_electronico_estudiante:
         type: string
       nombres_estudiante:
-        description: |-
-          add fk
-          add fk
         type: string
+      rol_estudiante:
+        $ref: '#/definitions/Models.Rol'
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
         type: string
       telefono_fijo_estudiante:
+        type: string
+    type: object
+  ResponseMessages.ListRolesResponse:
+    properties:
+      nombre_rol:
         type: string
     type: object
   ResponseMessages.PutOneEstudianteResponse:
@@ -125,11 +160,12 @@ definitions:
         type: string
       correo_electronico_estudiante:
         type: string
-      nombres_estudiante:
-        description: |-
-          add fk
-          add fk
+      hash_contrasena_estudiante:
         type: string
+      nombres_estudiante:
+        type: string
+      rol_estudiante:
+        $ref: '#/definitions/Models.Rol'
       rut_estudiante:
         type: string
       telefono_celular_estudiante:
@@ -137,7 +173,101 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-host: localhost:8080
+  ResponseMessages.PutOneRolResponse:
+    properties:
+      nombre_rol:
+        type: string
+    type: object
+  SwaggerMessages.AddNewEstudianteSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.AddNewEstudianteResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.AddNewRolSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.AddNewRolResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.DeleteEstudianteSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.DeleteEstudianteResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.DeleteRolSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.DeleteRolResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.GetOneEstudianteSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.GetOneEstudianteResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.GetOneRolSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.GetOneRolResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.ListEstudiantesSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.ListEstudiantesResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.ListRolesSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.ListRolesResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.PutOneEstudianteSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.PutOneEstudianteResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
+  SwaggerMessages.PutOneRolSwagger:
+    properties:
+      Data:
+        $ref: '#/definitions/ResponseMessages.PutOneRolResponse'
+      Meta:
+        type: string
+      Status:
+        type: boolean
+    type: object
 info:
   contact:
     email: martin.saavedra@mail.udp.cl
@@ -163,13 +293,15 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/ResponseMessages.ListEstudiantesResponse'
+              $ref: '#/definitions/SwaggerMessages.ListEstudiantesSwagger'
             type: array
         "400":
           description: Bad request
           schema:
             $ref: '#/definitions/ApiHelpers.ResponseError'
       summary: Lista de estudiantes
+      tags:
+      - Estudiantes
     post:
       consumes:
       - application/json
@@ -187,12 +319,14 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/ResponseMessages.AddNewEstudianteResponse'
+            $ref: '#/definitions/SwaggerMessages.AddNewEstudianteSwagger'
         "400":
           description: Bad request
           schema:
             $ref: '#/definitions/ApiHelpers.ResponseError'
       summary: Agrega un nuevo estudiante
+      tags:
+      - Estudiantes
   /estudiantes/{uuid_estudiante}:
     delete:
       consumes:
@@ -210,12 +344,14 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/ResponseMessages.DeleteEstudianteResponse'
+            $ref: '#/definitions/SwaggerMessages.DeleteEstudianteSwagger'
         "400":
           description: Bad request
           schema:
             $ref: '#/definitions/ApiHelpers.ResponseError'
       summary: Elimina un estudiante
+      tags:
+      - Estudiantes
     get:
       consumes:
       - application/json
@@ -232,12 +368,14 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/ResponseMessages.GetOneEstudianteResponse'
+            $ref: '#/definitions/SwaggerMessages.GetOneEstudianteSwagger'
         "400":
           description: Bad request
           schema:
             $ref: '#/definitions/ApiHelpers.ResponseError'
       summary: Obtiene un estudiante
+      tags:
+      - Estudiantes
     put:
       consumes:
       - application/json
@@ -260,10 +398,137 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/ResponseMessages.PutOneEstudianteResponse'
+            $ref: '#/definitions/SwaggerMessages.PutOneEstudianteSwagger'
         "400":
           description: Bad request
           schema:
             $ref: '#/definitions/ApiHelpers.ResponseError'
       summary: Modifica un estudiante
+      tags:
+      - Estudiantes
+  /roles:
+    get:
+      consumes:
+      - application/json
+      description: Lista todos los Roles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/SwaggerMessages.ListRolesSwagger'
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/ApiHelpers.ResponseError'
+      summary: Lista de Roles
+      tags:
+      - Roles
+    post:
+      consumes:
+      - application/json
+      description: Genera un nuevo rol con los datos entregados
+      parameters:
+      - description: Rol a agregar
+        in: body
+        name: input_rol
+        required: true
+        schema:
+          $ref: '#/definitions/RequestMessages.AddNewRolPayload'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/SwaggerMessages.AddNewRolSwagger'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/ApiHelpers.ResponseError'
+      summary: Agrega un nuevo rol
+      tags:
+      - Roles
+  /roles/{uuid_rol}:
+    delete:
+      consumes:
+      - application/json
+      description: Elimina un rol con los datos entregados
+      parameters:
+      - description: UUID del rol a eliminar
+        in: path
+        name: uuid_rol
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/SwaggerMessages.DeleteRolSwagger'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/ApiHelpers.ResponseError'
+      summary: Elimina un rol
+      tags:
+      - Roles
+    get:
+      consumes:
+      - application/json
+      description: Obtiene un rol según su UUID
+      parameters:
+      - description: UUID del rol a buscar
+        in: path
+        name: uuid_rol
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/SwaggerMessages.GetOneRolSwagger'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/ApiHelpers.ResponseError'
+      summary: Obtiene un rol
+      tags:
+      - Roles
+    put:
+      consumes:
+      - application/json
+      description: Modifica un rol con los datos entregados
+      parameters:
+      - description: UUID del rol a modificar
+        in: path
+        name: uuid_rol
+        required: true
+        type: string
+      - description: Rol a modificar
+        in: body
+        name: input_actualiza_rol
+        required: true
+        schema:
+          $ref: '#/definitions/RequestMessages.PutOneRolPayload'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/SwaggerMessages.PutOneRolSwagger'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/ApiHelpers.ResponseError'
+      summary: Modifica un rol
+      tags:
+      - Roles
 swagger: "2.0"

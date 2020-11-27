@@ -9,7 +9,7 @@ import (
 	"go-api-template/Config"
 	"go-api-template/Models"
 	"go-api-template/Routers"
-	_ "go-api-template/docs"
+	"go-api-template/docs"
 	"os"
 )
 
@@ -27,7 +27,6 @@ var err error
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host localhost:8080
 // @BasePath /api/v1
 func main() {
 	err := godotenv.Load()
@@ -37,6 +36,8 @@ func main() {
 
 	connection_string := os.Getenv("POSTGRESQL_CONNECTION_STRING")
 	should_automigrate := os.Getenv("SHOULD_AUTOMIGRATE")
+	swagger_protocol := os.Getenv("SWAGGER_PROTOCOL")
+	swagger_host := os.Getenv("SWAGGER_HOST")
 
 	Config.DB, err = gorm.Open("postgres", connection_string)
 	if err != nil {
@@ -57,8 +58,9 @@ func main() {
 	r := Routers.SetupRouter()
 
 	// auto swagger configuration
-	url := gin_swagger.URL("http://localhost:8080/swagger/doc.json")
-	r.GET("/swagger/*any", gin_swagger.WrapHandler(swagger_files.Handler, url))
+	docs.SwaggerInfo.Host = swagger_host
+	url := gin_swagger.URL(swagger_protocol + "://" + swagger_host + "/docs/v1/doc.json")
+	r.GET("/docs/v1/*any", gin_swagger.WrapHandler(swagger_files.Handler, url))
 
 	r.Run()
 }

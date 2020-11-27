@@ -7,7 +7,7 @@ import (
 	"go-api-template/Models"
 )
 
-func GetAllRols(u *[]Models.Rol) (err error) {
+func GetAllRoles(u *[]Models.Rol) (err error) {
 	if err = Config.DB.Find(u).Error; err != nil {
 		return err
 	}
