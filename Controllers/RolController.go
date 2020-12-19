@@ -1,32 +1,23 @@
 package Controllers
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-api-template/ApiHelpers"
-	"go-api-template/InputFormats"
+	"go-api-template/Formats/Input"
+	"go-api-template/Formats/Output"
+	"go-api-template/Messages/Request"
 	"go-api-template/Models"
-	"go-api-template/OutputFormats"
 	"go-api-template/Repositories"
-	"go-api-template/RequestMessages"
 	"go-api-template/Utils"
-)
 
-/*
-	*
-	*  FUNCIÓN ListRol
-	*
-    *
-	*
-	*
-    *
-*/
+	"github.com/gin-gonic/gin"
+)
 
 // @Summary Lista de Roles
 // @Description Lista todos los Roles
 // @Tags Roles
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} SwaggerMessages.ListRolesSwagger "OK"
+// @Success 200 {array} Swagger.ListRolesSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /roles [get]
 func ListRoles(c *gin.Context) {
@@ -41,18 +32,8 @@ func ListRoles(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.GetRolesOutput(container))
+	ApiHelpers.RespondJSON(c, 200, Output.GetRolesOutput(container))
 }
-
-/*
-	*
-	*  FUNCIÓN GetOneRol
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Obtiene un rol
 // @Description Obtiene un rol según su UUID
@@ -60,7 +41,7 @@ func ListRoles(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param   uuid_rol     path    string     true        "UUID del rol a buscar"
-// @Success 200 {object} SwaggerMessages.GetOneRolSwagger "OK"
+// @Success 200 {object} Swagger.GetOneRolSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /roles/{uuid_rol} [get]
 func GetOneRol(c *gin.Context) {
@@ -78,31 +59,21 @@ func GetOneRol(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.GetOneRolOutput(container))
+	ApiHelpers.RespondJSON(c, 200, Output.GetOneRolOutput(container))
 }
-
-/*
-	*
-	*  FUNCIÓN AddNewRol
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Agrega un nuevo rol
 // @Description Genera un nuevo rol con los datos entregados
 // @Tags Roles
 // @Accept  json
 // @Produce  json
-// @Param   input_rol     body    RequestMessages.AddNewRolPayload     true        "Rol a agregar"
-// @Success 200 {object} SwaggerMessages.AddNewRolSwagger "OK"
+// @Param   input_rol     body    Request.AddNewRolPayload     true        "Rol a agregar"
+// @Success 200 {object} Swagger.AddNewRolSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /roles [post]
 func AddNewRol(c *gin.Context) {
 	// input container
-	var container RequestMessages.AddNewRolPayload
+	var container Request.AddNewRolPayload
 
 	// input bind
 	if err := c.ShouldBind(&container); err != nil {
@@ -111,7 +82,7 @@ func AddNewRol(c *gin.Context) {
 	}
 
 	// format input
-	InputFormats.AddNewRolInput(&container)
+	Input.AddNewRolInput(&container)
 
 	// generate model entity
 	model_container := Models.Rol{
@@ -126,18 +97,8 @@ func AddNewRol(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.AddNewRolOutput(model_container))
+	ApiHelpers.RespondJSON(c, 200, Output.AddNewRolOutput(model_container))
 }
-
-/*
-	*
-	*  FUNCIÓN PutOneRol
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Modifica un rol
 // @Description Modifica un rol con los datos entregados
@@ -145,8 +106,8 @@ func AddNewRol(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param   uuid_rol     path    string     true        "UUID del rol a modificar"
-// @Param   input_actualiza_rol     body    RequestMessages.PutOneRolPayload     true        "Rol a modificar"
-// @Success 200 {object} SwaggerMessages.PutOneRolSwagger "OK"
+// @Param   input_actualiza_rol     body    Request.PutOneRolPayload     true        "Rol a modificar"
+// @Success 200 {object} Swagger.PutOneRolSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /roles/{uuid_rol} [put]
 func PutOneRol(c *gin.Context) {
@@ -154,7 +115,7 @@ func PutOneRol(c *gin.Context) {
 	id := c.Params.ByName("id")
 
 	// input container
-	var container RequestMessages.PutOneRolPayload
+	var container Request.PutOneRolPayload
 
 	// input bind
 	if err := c.ShouldBind(&container); err != nil {
@@ -163,7 +124,7 @@ func PutOneRol(c *gin.Context) {
 	}
 
 	// format input
-	InputFormats.PutOneRolInput(&container)
+	Input.PutOneRolInput(&container)
 
 	// generate model entity
 	var model_container Models.Rol
@@ -189,18 +150,8 @@ func PutOneRol(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.PutOneRolOutput(model_container))
+	ApiHelpers.RespondJSON(c, 200, Output.PutOneRolOutput(model_container))
 }
-
-/*
-	*
-	*  FUNCIÓN DeleteRol
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Elimina un rol
 // @Description Elimina un rol con los datos entregados
@@ -208,7 +159,7 @@ func PutOneRol(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param   uuid_rol     path    string     true        "UUID del rol a eliminar"
-// @Success 200 {object} SwaggerMessages.DeleteRolSwagger "OK"
+// @Success 200 {object} Swagger.DeleteRolSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /roles/{uuid_rol} [delete]
 func DeleteRol(c *gin.Context) {
@@ -226,5 +177,5 @@ func DeleteRol(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.DeleteRolOutput(container))
+	ApiHelpers.RespondJSON(c, 200, Output.DeleteRolOutput(container))
 }

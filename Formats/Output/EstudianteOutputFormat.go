@@ -1,13 +1,13 @@
-package OutputFormats
+package Output
 
 import (
+	"go-api-template/Messages/Response"
 	"go-api-template/Models"
-	"go-api-template/ResponseMessages"
 )
 
-func GetEstudiantesOutput(u []Models.Estudiante) (output []ResponseMessages.ListEstudiantesResponse) {
+func GetEstudiantesOutput(u []Models.Estudiante) (output []Response.ListEstudiantesResponse) {
 	for i := 0; i < len(u); i++ {
-		output = append(output, ResponseMessages.ListEstudiantesResponse{
+		output = append(output, Response.ListEstudiantesResponse{
 			Rol_estudiante:                u[i].Rol_estudiante,
 			Rut_estudiante:                u[i].Rut_estudiante,
 			Nombres_estudiante:            u[i].Nombres_estudiante,
@@ -21,8 +21,8 @@ func GetEstudiantesOutput(u []Models.Estudiante) (output []ResponseMessages.List
 	return output
 }
 
-func GetOneEstudianteOutput(u Models.Estudiante) (output ResponseMessages.GetOneEstudianteResponse) {
-	return ResponseMessages.GetOneEstudianteResponse{
+func GetOneEstudianteOutput(u Models.Estudiante) (output Response.GetOneEstudianteResponse) {
+	return Response.GetOneEstudianteResponse{
 		Rol_estudiante:                u.Rol_estudiante,
 		Rut_estudiante:                u.Rut_estudiante,
 		Nombres_estudiante:            u.Nombres_estudiante,
@@ -33,8 +33,8 @@ func GetOneEstudianteOutput(u Models.Estudiante) (output ResponseMessages.GetOne
 	}
 }
 
-func AddNewEstudianteOutput(u Models.Estudiante) (output ResponseMessages.AddNewEstudianteResponse) {
-	return ResponseMessages.AddNewEstudianteResponse{
+func AddNewEstudianteOutput(u Models.Estudiante) (output Response.AddNewEstudianteResponse) {
+	return Response.AddNewEstudianteResponse{
 		Rol_estudiante:                u.Rol_estudiante,
 		Rut_estudiante:                u.Rut_estudiante,
 		Nombres_estudiante:            u.Nombres_estudiante,
@@ -45,8 +45,8 @@ func AddNewEstudianteOutput(u Models.Estudiante) (output ResponseMessages.AddNew
 	}
 }
 
-func PutOneEstudianteOutput(u Models.Estudiante) (output ResponseMessages.PutOneEstudianteResponse) {
-	return ResponseMessages.PutOneEstudianteResponse{
+func PutOneEstudianteOutput(u Models.Estudiante) (output Response.PutOneEstudianteResponse) {
+	return Response.PutOneEstudianteResponse{
 		Rol_estudiante:                u.Rol_estudiante,
 		Rut_estudiante:                u.Rut_estudiante,
 		Nombres_estudiante:            u.Nombres_estudiante,
@@ -58,8 +58,8 @@ func PutOneEstudianteOutput(u Models.Estudiante) (output ResponseMessages.PutOne
 	}
 }
 
-func DeleteEstudianteOutput(u Models.Estudiante) (output ResponseMessages.DeleteEstudianteResponse) {
-	return ResponseMessages.DeleteEstudianteResponse{
+func DeleteEstudianteOutput(u Models.Estudiante) (output Response.DeleteEstudianteResponse) {
+	return Response.DeleteEstudianteResponse{
 		Rol_estudiante:                u.Rol_estudiante,
 		Rut_estudiante:                u.Rut_estudiante,
 		Nombres_estudiante:            u.Nombres_estudiante,

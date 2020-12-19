@@ -1,20 +1,20 @@
-package InputFormats
+package Input
 
 import (
-	"go-api-template/RequestMessages"
+	"go-api-template/Messages/Request"
 	"go-api-template/Utils"
 	"strings"
 )
 
-func GetEstudiantesInput(u *RequestMessages.ListEstudiantesPayload) {
+func GetEstudiantesInput(u *Request.ListEstudiantesPayload) {
 
 }
 
-func GetOneEstudianteInput(u *RequestMessages.GetOneEstudiantePayload) {
+func GetOneEstudianteInput(u *Request.GetOneEstudiantePayload) {
 
 }
 
-func AddNewEstudianteInput(u *RequestMessages.AddNewEstudiantePayload) {
+func AddNewEstudianteInput(u *Request.AddNewEstudiantePayload) {
 	u.Rut_estudiante = strings.TrimSpace(u.Rut_estudiante)
 	u.Rut_estudiante = strings.ToUpper(u.Rut_estudiante)
 	u.Rut_estudiante = Utils.RemoveAccents(u.Rut_estudiante)
@@ -40,7 +40,7 @@ func AddNewEstudianteInput(u *RequestMessages.AddNewEstudiantePayload) {
 	u.Telefono_celular_estudiante = Utils.RemoveAccents(u.Telefono_celular_estudiante)
 }
 
-func PutOneEstudianteInput(u *RequestMessages.PutOneEstudiantePayload) {
+func PutOneEstudianteInput(u *Request.PutOneEstudiantePayload) {
 	u.Rut_estudiante = strings.TrimSpace(u.Rut_estudiante)
 	u.Rut_estudiante = strings.ToUpper(u.Rut_estudiante)
 	u.Rut_estudiante = Utils.RemoveAccents(u.Rut_estudiante)
@@ -66,6 +66,6 @@ func PutOneEstudianteInput(u *RequestMessages.PutOneEstudiantePayload) {
 	u.Telefono_celular_estudiante = Utils.RemoveAccents(u.Telefono_celular_estudiante)
 }
 
-func DeleteEstudianteInput(u *RequestMessages.DeleteEstudiantePayload) {
+func DeleteEstudianteInput(u *Request.DeleteEstudiantePayload) {
 
 }

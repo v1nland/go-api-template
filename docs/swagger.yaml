@@ -18,7 +18,7 @@ definitions:
       updated_at:
         type: string
     type: object
-  RequestMessages.AddNewEstudiantePayload:
+  Request.AddNewEstudiantePayload:
     properties:
       apellidos_estudiante:
         type: string
@@ -37,12 +37,12 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  RequestMessages.AddNewRolPayload:
+  Request.AddNewRolPayload:
     properties:
       nombre_rol:
         type: string
     type: object
-  RequestMessages.PutOneEstudiantePayload:
+  Request.PutOneEstudiantePayload:
     properties:
       apellidos_estudiante:
         type: string
@@ -61,12 +61,12 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  RequestMessages.PutOneRolPayload:
+  Request.PutOneRolPayload:
     properties:
       nombre_rol:
         type: string
     type: object
-  ResponseMessages.AddNewEstudianteResponse:
+  Response.AddNewEstudianteResponse:
     properties:
       apellidos_estudiante:
         type: string
@@ -83,12 +83,12 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  ResponseMessages.AddNewRolResponse:
+  Response.AddNewRolResponse:
     properties:
       nombre_rol:
         type: string
     type: object
-  ResponseMessages.DeleteEstudianteResponse:
+  Response.DeleteEstudianteResponse:
     properties:
       apellidos_estudiante:
         type: string
@@ -105,12 +105,12 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  ResponseMessages.DeleteRolResponse:
+  Response.DeleteRolResponse:
     properties:
       nombre_rol:
         type: string
     type: object
-  ResponseMessages.GetOneEstudianteResponse:
+  Response.GetOneEstudianteResponse:
     properties:
       apellidos_estudiante:
         type: string
@@ -127,12 +127,12 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  ResponseMessages.GetOneRolResponse:
+  Response.GetOneRolResponse:
     properties:
       nombre_rol:
         type: string
     type: object
-  ResponseMessages.ListEstudiantesResponse:
+  Response.ListEstudiantesResponse:
     properties:
       apellidos_estudiante:
         type: string
@@ -149,12 +149,12 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  ResponseMessages.ListRolesResponse:
+  Response.ListRolesResponse:
     properties:
       nombre_rol:
         type: string
     type: object
-  ResponseMessages.PutOneEstudianteResponse:
+  Response.PutOneEstudianteResponse:
     properties:
       apellidos_estudiante:
         type: string
@@ -173,96 +173,96 @@ definitions:
       telefono_fijo_estudiante:
         type: string
     type: object
-  ResponseMessages.PutOneRolResponse:
+  Response.PutOneRolResponse:
     properties:
       nombre_rol:
         type: string
     type: object
-  SwaggerMessages.AddNewEstudianteSwagger:
+  Swagger.AddNewEstudianteSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.AddNewEstudianteResponse'
+        $ref: '#/definitions/Response.AddNewEstudianteResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.AddNewRolSwagger:
+  Swagger.AddNewRolSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.AddNewRolResponse'
+        $ref: '#/definitions/Response.AddNewRolResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.DeleteEstudianteSwagger:
+  Swagger.DeleteEstudianteSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.DeleteEstudianteResponse'
+        $ref: '#/definitions/Response.DeleteEstudianteResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.DeleteRolSwagger:
+  Swagger.DeleteRolSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.DeleteRolResponse'
+        $ref: '#/definitions/Response.DeleteRolResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.GetOneEstudianteSwagger:
+  Swagger.GetOneEstudianteSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.GetOneEstudianteResponse'
+        $ref: '#/definitions/Response.GetOneEstudianteResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.GetOneRolSwagger:
+  Swagger.GetOneRolSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.GetOneRolResponse'
+        $ref: '#/definitions/Response.GetOneRolResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.ListEstudiantesSwagger:
+  Swagger.ListEstudiantesSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.ListEstudiantesResponse'
+        $ref: '#/definitions/Response.ListEstudiantesResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.ListRolesSwagger:
+  Swagger.ListRolesSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.ListRolesResponse'
+        $ref: '#/definitions/Response.ListRolesResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.PutOneEstudianteSwagger:
+  Swagger.PutOneEstudianteSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.PutOneEstudianteResponse'
+        $ref: '#/definitions/Response.PutOneEstudianteResponse'
       Meta:
         type: string
       Status:
         type: boolean
     type: object
-  SwaggerMessages.PutOneRolSwagger:
+  Swagger.PutOneRolSwagger:
     properties:
       Data:
-        $ref: '#/definitions/ResponseMessages.PutOneRolResponse'
+        $ref: '#/definitions/Response.PutOneRolResponse'
       Meta:
         type: string
       Status:
@@ -293,7 +293,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/SwaggerMessages.ListEstudiantesSwagger'
+              $ref: '#/definitions/Swagger.ListEstudiantesSwagger'
             type: array
         "400":
           description: Bad request
@@ -312,14 +312,14 @@ paths:
         name: input_estudiante
         required: true
         schema:
-          $ref: '#/definitions/RequestMessages.AddNewEstudiantePayload'
+          $ref: '#/definitions/Request.AddNewEstudiantePayload'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.AddNewEstudianteSwagger'
+            $ref: '#/definitions/Swagger.AddNewEstudianteSwagger'
         "400":
           description: Bad request
           schema:
@@ -344,7 +344,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.DeleteEstudianteSwagger'
+            $ref: '#/definitions/Swagger.DeleteEstudianteSwagger'
         "400":
           description: Bad request
           schema:
@@ -368,7 +368,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.GetOneEstudianteSwagger'
+            $ref: '#/definitions/Swagger.GetOneEstudianteSwagger'
         "400":
           description: Bad request
           schema:
@@ -391,14 +391,14 @@ paths:
         name: input_actualiza_estudiante
         required: true
         schema:
-          $ref: '#/definitions/RequestMessages.PutOneEstudiantePayload'
+          $ref: '#/definitions/Request.PutOneEstudiantePayload'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.PutOneEstudianteSwagger'
+            $ref: '#/definitions/Swagger.PutOneEstudianteSwagger'
         "400":
           description: Bad request
           schema:
@@ -418,7 +418,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/SwaggerMessages.ListRolesSwagger'
+              $ref: '#/definitions/Swagger.ListRolesSwagger'
             type: array
         "400":
           description: Bad request
@@ -437,14 +437,14 @@ paths:
         name: input_rol
         required: true
         schema:
-          $ref: '#/definitions/RequestMessages.AddNewRolPayload'
+          $ref: '#/definitions/Request.AddNewRolPayload'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.AddNewRolSwagger'
+            $ref: '#/definitions/Swagger.AddNewRolSwagger'
         "400":
           description: Bad request
           schema:
@@ -469,7 +469,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.DeleteRolSwagger'
+            $ref: '#/definitions/Swagger.DeleteRolSwagger'
         "400":
           description: Bad request
           schema:
@@ -493,7 +493,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.GetOneRolSwagger'
+            $ref: '#/definitions/Swagger.GetOneRolSwagger'
         "400":
           description: Bad request
           schema:
@@ -516,14 +516,14 @@ paths:
         name: input_actualiza_rol
         required: true
         schema:
-          $ref: '#/definitions/RequestMessages.PutOneRolPayload'
+          $ref: '#/definitions/Request.PutOneRolPayload'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/SwaggerMessages.PutOneRolSwagger'
+            $ref: '#/definitions/Swagger.PutOneRolSwagger'
         "400":
           description: Bad request
           schema:

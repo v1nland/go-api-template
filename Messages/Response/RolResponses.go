@@ -1,4 +1,4 @@
-package ResponseMessages
+package Response
 
 type ListRolesResponse struct {
 	Nombre_rol string `json:"nombre_rol"`

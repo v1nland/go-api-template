@@ -1,32 +1,23 @@
 package Controllers
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-api-template/ApiHelpers"
-	"go-api-template/InputFormats"
+	"go-api-template/Formats/Input"
+	"go-api-template/Formats/Output"
+	"go-api-template/Messages/Request"
 	"go-api-template/Models"
-	"go-api-template/OutputFormats"
 	"go-api-template/Repositories"
-	"go-api-template/RequestMessages"
 	"go-api-template/Utils"
-)
 
-/*
-	*
-	*  FUNCIÓN ListEstudiante
-	*
-    *
-	*
-	*
-    *
-*/
+	"github.com/gin-gonic/gin"
+)
 
 // @Summary Lista de estudiantes
 // @Description Lista todos los estudiantes
 // @Tags Estudiantes
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} SwaggerMessages.ListEstudiantesSwagger "OK"
+// @Success 200 {array} Swagger.ListEstudiantesSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /estudiantes [get]
 func ListEstudiantes(c *gin.Context) {
@@ -41,18 +32,8 @@ func ListEstudiantes(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.GetEstudiantesOutput(container))
+	ApiHelpers.RespondJSON(c, 200, Output.GetEstudiantesOutput(container))
 }
-
-/*
-	*
-	*  FUNCIÓN GetOneEstudiante
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Obtiene un estudiante
 // @Description Obtiene un estudiante según su UUID
@@ -60,7 +41,7 @@ func ListEstudiantes(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param   uuid_estudiante     path    string     true        "UUID del estudiante a buscar"
-// @Success 200 {object} SwaggerMessages.GetOneEstudianteSwagger "OK"
+// @Success 200 {object} Swagger.GetOneEstudianteSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /estudiantes/{uuid_estudiante} [get]
 func GetOneEstudiante(c *gin.Context) {
@@ -78,31 +59,21 @@ func GetOneEstudiante(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.GetOneEstudianteOutput(container))
+	ApiHelpers.RespondJSON(c, 200, Output.GetOneEstudianteOutput(container))
 }
-
-/*
-	*
-	*  FUNCIÓN AddNewEstudiante
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Agrega un nuevo estudiante
 // @Description Genera un nuevo estudiante con los datos entregados
 // @Tags Estudiantes
 // @Accept  json
 // @Produce  json
-// @Param   input_estudiante     body    RequestMessages.AddNewEstudiantePayload     true        "Estudiante a agregar"
-// @Success 200 {object} SwaggerMessages.AddNewEstudianteSwagger "OK"
+// @Param   input_estudiante     body    Request.AddNewEstudiantePayload     true        "Estudiante a agregar"
+// @Success 200 {object} Swagger.AddNewEstudianteSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /estudiantes [post]
 func AddNewEstudiante(c *gin.Context) {
 	// input container
-	var container RequestMessages.AddNewEstudiantePayload
+	var container Request.AddNewEstudiantePayload
 
 	// input bind
 	if err := c.ShouldBind(&container); err != nil {
@@ -111,7 +82,7 @@ func AddNewEstudiante(c *gin.Context) {
 	}
 
 	// format input
-	InputFormats.AddNewEstudianteInput(&container)
+	Input.AddNewEstudianteInput(&container)
 
 	// generate model entity
 	model_container := Models.Estudiante{
@@ -133,18 +104,8 @@ func AddNewEstudiante(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.AddNewEstudianteOutput(model_container))
+	ApiHelpers.RespondJSON(c, 200, Output.AddNewEstudianteOutput(model_container))
 }
-
-/*
-	*
-	*  FUNCIÓN PutOneEstudiante
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Modifica un estudiante
 // @Description Modifica un estudiante con los datos entregados
@@ -152,8 +113,8 @@ func AddNewEstudiante(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param   uuid_estudiante     path    string     true        "UUID del estudiante a modificar"
-// @Param   input_actualiza_estudiante     body    RequestMessages.PutOneEstudiantePayload     true        "Estudiante a modificar"
-// @Success 200 {object} SwaggerMessages.PutOneEstudianteSwagger "OK"
+// @Param   input_actualiza_estudiante     body    Request.PutOneEstudiantePayload     true        "Estudiante a modificar"
+// @Success 200 {object} Swagger.PutOneEstudianteSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /estudiantes/{uuid_estudiante} [put]
 func PutOneEstudiante(c *gin.Context) {
@@ -161,7 +122,7 @@ func PutOneEstudiante(c *gin.Context) {
 	id := c.Params.ByName("id")
 
 	// input container
-	var container RequestMessages.PutOneEstudiantePayload
+	var container Request.PutOneEstudiantePayload
 
 	// input bind
 	if err := c.ShouldBind(&container); err != nil {
@@ -170,7 +131,7 @@ func PutOneEstudiante(c *gin.Context) {
 	}
 
 	// format input
-	InputFormats.PutOneEstudianteInput(&container)
+	Input.PutOneEstudianteInput(&container)
 
 	// generate model entity
 	var model_container Models.Estudiante
@@ -203,18 +164,8 @@ func PutOneEstudiante(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.PutOneEstudianteOutput(model_container))
+	ApiHelpers.RespondJSON(c, 200, Output.PutOneEstudianteOutput(model_container))
 }
-
-/*
-	*
-	*  FUNCIÓN DeleteEstudiante
-	*
-    *
-	*
-	*
-    *
-*/
 
 // @Summary Elimina un estudiante
 // @Description Elimina un estudiante con los datos entregados
@@ -222,7 +173,7 @@ func PutOneEstudiante(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param   uuid_estudiante     path    string     true        "UUID del estudiante a eliminar"
-// @Success 200 {object} SwaggerMessages.DeleteEstudianteSwagger "OK"
+// @Success 200 {object} Swagger.DeleteEstudianteSwagger "OK"
 // @Failure 400 {object} ApiHelpers.ResponseError "Bad request"
 // @Router /estudiantes/{uuid_estudiante} [delete]
 func DeleteEstudiante(c *gin.Context) {
@@ -240,5 +191,5 @@ func DeleteEstudiante(c *gin.Context) {
 	}
 
 	// output
-	ApiHelpers.RespondJSON(c, 200, OutputFormats.DeleteEstudianteOutput(container))
+	ApiHelpers.RespondJSON(c, 200, Output.DeleteEstudianteOutput(container))
 }

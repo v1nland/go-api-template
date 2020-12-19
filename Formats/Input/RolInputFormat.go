@@ -1,31 +1,31 @@
-package InputFormats
+package Input
 
 import (
-	"go-api-template/RequestMessages"
+	"go-api-template/Messages/Request"
 	"go-api-template/Utils"
 	"strings"
 )
 
-func GetRolesInput(u *RequestMessages.ListRolesPayload) {
+func GetRolesInput(u *Request.ListRolesPayload) {
 
 }
 
-func GetOneRolInput(u *RequestMessages.GetOneRolPayload) {
+func GetOneRolInput(u *Request.GetOneRolPayload) {
 
 }
 
-func AddNewRolInput(u *RequestMessages.AddNewRolPayload) {
+func AddNewRolInput(u *Request.AddNewRolPayload) {
 	u.Nombre_rol = strings.TrimSpace(u.Nombre_rol)
 	u.Nombre_rol = strings.ToUpper(u.Nombre_rol)
 	u.Nombre_rol = Utils.RemoveAccents(u.Nombre_rol)
 }
 
-func PutOneRolInput(u *RequestMessages.PutOneRolPayload) {
+func PutOneRolInput(u *Request.PutOneRolPayload) {
 	u.Nombre_rol = strings.TrimSpace(u.Nombre_rol)
 	u.Nombre_rol = strings.ToUpper(u.Nombre_rol)
 	u.Nombre_rol = Utils.RemoveAccents(u.Nombre_rol)
 }
 
-func DeleteRolInput(u *RequestMessages.DeleteRolPayload) {
+func DeleteRolInput(u *Request.DeleteRolPayload) {
 
 }

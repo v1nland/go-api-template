@@ -1,4 +1,4 @@
-package RequestMessages
+package Request
 
 type ListRolesPayload struct {
 }

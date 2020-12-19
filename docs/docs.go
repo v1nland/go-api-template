@@ -52,7 +52,7 @@ var doc = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/SwaggerMessages.ListEstudiantesSwagger"
+                                "$ref": "#/definitions/Swagger.ListEstudiantesSwagger"
                             }
                         }
                     },
@@ -83,7 +83,7 @@ var doc = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/RequestMessages.AddNewEstudiantePayload"
+                            "$ref": "#/definitions/Request.AddNewEstudiantePayload"
                         }
                     }
                 ],
@@ -91,7 +91,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.AddNewEstudianteSwagger"
+                            "$ref": "#/definitions/Swagger.AddNewEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -129,7 +129,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.GetOneEstudianteSwagger"
+                            "$ref": "#/definitions/Swagger.GetOneEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -166,7 +166,7 @@ var doc = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/RequestMessages.PutOneEstudiantePayload"
+                            "$ref": "#/definitions/Request.PutOneEstudiantePayload"
                         }
                     }
                 ],
@@ -174,7 +174,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.PutOneEstudianteSwagger"
+                            "$ref": "#/definitions/Swagger.PutOneEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -210,7 +210,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.DeleteEstudianteSwagger"
+                            "$ref": "#/definitions/Swagger.DeleteEstudianteSwagger"
                         }
                     },
                     "400": {
@@ -241,7 +241,7 @@ var doc = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/SwaggerMessages.ListRolesSwagger"
+                                "$ref": "#/definitions/Swagger.ListRolesSwagger"
                             }
                         }
                     },
@@ -272,7 +272,7 @@ var doc = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/RequestMessages.AddNewRolPayload"
+                            "$ref": "#/definitions/Request.AddNewRolPayload"
                         }
                     }
                 ],
@@ -280,7 +280,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.AddNewRolSwagger"
+                            "$ref": "#/definitions/Swagger.AddNewRolSwagger"
                         }
                     },
                     "400": {
@@ -318,7 +318,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.GetOneRolSwagger"
+                            "$ref": "#/definitions/Swagger.GetOneRolSwagger"
                         }
                     },
                     "400": {
@@ -355,7 +355,7 @@ var doc = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/RequestMessages.PutOneRolPayload"
+                            "$ref": "#/definitions/Request.PutOneRolPayload"
                         }
                     }
                 ],
@@ -363,7 +363,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.PutOneRolSwagger"
+                            "$ref": "#/definitions/Swagger.PutOneRolSwagger"
                         }
                     },
                     "400": {
@@ -399,7 +399,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/SwaggerMessages.DeleteRolSwagger"
+                            "$ref": "#/definitions/Swagger.DeleteRolSwagger"
                         }
                     },
                     "400": {
@@ -441,7 +441,7 @@ var doc = `{
                 }
             }
         },
-        "RequestMessages.AddNewEstudiantePayload": {
+        "Request.AddNewEstudiantePayload": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -470,7 +470,7 @@ var doc = `{
                 }
             }
         },
-        "RequestMessages.AddNewRolPayload": {
+        "Request.AddNewRolPayload": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -478,7 +478,7 @@ var doc = `{
                 }
             }
         },
-        "RequestMessages.PutOneEstudiantePayload": {
+        "Request.PutOneEstudiantePayload": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -507,7 +507,7 @@ var doc = `{
                 }
             }
         },
-        "RequestMessages.PutOneRolPayload": {
+        "Request.PutOneRolPayload": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -515,7 +515,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.AddNewEstudianteResponse": {
+        "Response.AddNewEstudianteResponse": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -541,7 +541,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.AddNewRolResponse": {
+        "Response.AddNewRolResponse": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -549,7 +549,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.DeleteEstudianteResponse": {
+        "Response.DeleteEstudianteResponse": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -575,7 +575,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.DeleteRolResponse": {
+        "Response.DeleteRolResponse": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -583,7 +583,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.GetOneEstudianteResponse": {
+        "Response.GetOneEstudianteResponse": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -609,7 +609,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.GetOneRolResponse": {
+        "Response.GetOneRolResponse": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -617,7 +617,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.ListEstudiantesResponse": {
+        "Response.ListEstudiantesResponse": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -643,7 +643,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.ListRolesResponse": {
+        "Response.ListRolesResponse": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -651,7 +651,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.PutOneEstudianteResponse": {
+        "Response.PutOneEstudianteResponse": {
             "type": "object",
             "properties": {
                 "apellidos_estudiante": {
@@ -680,7 +680,7 @@ var doc = `{
                 }
             }
         },
-        "ResponseMessages.PutOneRolResponse": {
+        "Response.PutOneRolResponse": {
             "type": "object",
             "properties": {
                 "nombre_rol": {
@@ -688,11 +688,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.AddNewEstudianteSwagger": {
+        "Swagger.AddNewEstudianteSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.AddNewEstudianteResponse"
+                    "$ref": "#/definitions/Response.AddNewEstudianteResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -702,11 +702,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.AddNewRolSwagger": {
+        "Swagger.AddNewRolSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.AddNewRolResponse"
+                    "$ref": "#/definitions/Response.AddNewRolResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -716,11 +716,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.DeleteEstudianteSwagger": {
+        "Swagger.DeleteEstudianteSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.DeleteEstudianteResponse"
+                    "$ref": "#/definitions/Response.DeleteEstudianteResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -730,11 +730,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.DeleteRolSwagger": {
+        "Swagger.DeleteRolSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.DeleteRolResponse"
+                    "$ref": "#/definitions/Response.DeleteRolResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -744,11 +744,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.GetOneEstudianteSwagger": {
+        "Swagger.GetOneEstudianteSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.GetOneEstudianteResponse"
+                    "$ref": "#/definitions/Response.GetOneEstudianteResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -758,11 +758,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.GetOneRolSwagger": {
+        "Swagger.GetOneRolSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.GetOneRolResponse"
+                    "$ref": "#/definitions/Response.GetOneRolResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -772,11 +772,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.ListEstudiantesSwagger": {
+        "Swagger.ListEstudiantesSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.ListEstudiantesResponse"
+                    "$ref": "#/definitions/Response.ListEstudiantesResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -786,11 +786,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.ListRolesSwagger": {
+        "Swagger.ListRolesSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.ListRolesResponse"
+                    "$ref": "#/definitions/Response.ListRolesResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -800,11 +800,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.PutOneEstudianteSwagger": {
+        "Swagger.PutOneEstudianteSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.PutOneEstudianteResponse"
+                    "$ref": "#/definitions/Response.PutOneEstudianteResponse"
                 },
                 "Meta": {
                     "type": "string"
@@ -814,11 +814,11 @@ var doc = `{
                 }
             }
         },
-        "SwaggerMessages.PutOneRolSwagger": {
+        "Swagger.PutOneRolSwagger": {
             "type": "object",
             "properties": {
                 "Data": {
-                    "$ref": "#/definitions/ResponseMessages.PutOneRolResponse"
+                    "$ref": "#/definitions/Response.PutOneRolResponse"
                 },
                 "Meta": {
                     "type": "string"

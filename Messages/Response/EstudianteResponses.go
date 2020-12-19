@@ -1,4 +1,4 @@
-package ResponseMessages
+package Response
 
 import (
 	"go-api-template/Models"
